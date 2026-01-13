@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JTGeets - Home Food Delivery</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+ <header class="header">
+  <div class="logo">JTGeets</div>
+  <nav class="nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="nav-icons">
+    <button id="search-icon" title="Search"><i class="fas fa-search"></i></button>
+    <button id="cart-icon" title="Cart"><i class="fas fa-shopping-cart"></i></button> 
+  </div>
+</header>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Authentic Home<br>food in India</h1>
+      <p>
+       JTGeets is a courier service in which authentic home<br>
+      cooked food is delivered to a customer.
+      </p>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Search food you love..." />
+        <button>Search</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="Images/final.png" alt="Cooking illustration" />
+    </div>
+  </section>
+
+  <!-- Home Kitchen Grid -->
+  <section class="menu-section">
+    <h2>Home Kitchen</h2>
+    <div class="menu-grid" id="menu-grid"></div>
+  </section>
+
+  <!-- Popular Items Section -->
+  <section class="popular-items">
+    <h2>Popular Items</h2>
+    <div class="carousel-wrapper">
+      <button id="prevPopularBtn" class="carousel-btn"><i class="fas fa-chevron-left"></i></button>
+      <div id="popularTrack" class="popular-scroll-wrapper"></div>
+      <button id="nextPopularBtn" class="carousel-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div style="text-align: center; margin-top: 1rem;">
+      <button id="popular-request-btn" class="btn">Request a Dish</button>
+    </div>
+  </section>
+
+  <!-- About/Service Section -->
+  <section class="service-info">
+   <div class="upper-half">
+    <h2 class="service-heading">
+      We are providing the best <br>
+      <span>homecooked food delivery service.</span>
+    </h2>
+    <p id="para">Away from home and missing the tasty homemade recipes?<br>
+      <span> from a selection of our seasonal home-cooked dishes.</span>
+    </p>
+  </div>
+    <div class="video-thumbnail">
+  <div class="video-wrapper">
+    <video id="promoVideo" controls>
+      <source src="Videos/7172269-uhd_3840_2160_25fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div id="playIcon" class="play-icon"><i class="fas fa-play"></i></div>
+  </div>
+</div>
+
+    
+  </section>
+
+  <!-- Contact Section -->
+  <!-- Contact Section -->
+<section class="contact">
+  <div class="contact-container">
+    <div class="contact-form-wrapper">
+      <h2>
+        Do you have a question<br>
+        or want to become a seller?
+      </h2>
+      <p class="contact-subtext">Fill out the form and our manager will contact you within 48 hours.</p>
+      <form id="contact-form">
+        <div class="contact-inputs">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+        </div>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="contact-image">
+      <img src="Images/circular_delivery_boy.png" alt="Contact Us">
+    </div>
+  </div>
+</section>
+
+
+ 
+
+  <!-- Footer -->
+ <!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h3>JTGeats</h3>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="footer-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+</footer>
+
+  <!-- Request Modal -->
+<div id="requestModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Request a Dish</h2>
+    <form id="request-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="What dish would you like us to add?" required></textarea>
+      <button type="submit">Submit Request</button>
+    </form>
+  </div>
+</div>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
