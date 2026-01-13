@@ -62,6 +62,15 @@ renderItems(items, menuGrid);
 const popularTrack = document.getElementById('popularTrack');
 renderItems(popularItems, popularTrack);
 
+// Search functionality
+document.querySelector('.search-bar button').addEventListener('click', () => {
+  const query = document.querySelector('.search-bar input').value.toLowerCase().trim();
+  const filteredItems = items.filter(item => item.name.toLowerCase().includes(query));
+  const menuGrid = document.getElementById('menu-grid');
+  menuGrid.innerHTML = '';
+  renderItems(filteredItems, menuGrid);
+});
+
 // Scroll buttons
 document.getElementById('nextPopularBtn').addEventListener('click', () => {
   popularTrack.scrollBy({ left: 260, behavior: 'smooth' });
@@ -99,7 +108,7 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
 
 // Icons
 document.getElementById('search-icon').addEventListener('click', () => {
-  alert('Search feature will be available soon!');
+  document.getElementById('searchModal').style.display = 'block';
 });
 
 document.getElementById('cart-icon').addEventListener('click', () => {
@@ -138,25 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-const video = document.getElementById("promoVideo");
-const playIcon = document.getElementById("playIcon");
-
-if (video && playIcon) {
-  // Show icon when paused
-  video.addEventListener("pause", () => {
-    playIcon.style.display = "block";
-  });
-
-  // Hide icon when playing
-  video.addEventListener("play", () => {
-    playIcon.style.display = "none";
-  });
-
-  // Play video on icon click
-  playIcon.addEventListener("click", () => {
-    video.play();
-  });
-}
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("requestModal");
   const openBtn = document.getElementById("popular-request-btn");
@@ -260,6 +250,50 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+// Search Modal
+document.addEventListener("DOMContentLoaded", () => {
+  const searchModal = document.getElementById("searchModal");
+  const closeBtn = document.querySelector("#searchModal .close");
+  const searchBtn = document.getElementById("modalSearchBtn");
+  const searchInput = document.getElementById("modalSearchInput");
+  const resultsDiv = document.getElementById("searchResults");
+
+  if (searchModal && closeBtn && searchBtn && searchInput && resultsDiv) {
+    // Close modal on X click
+    closeBtn.addEventListener("click", () => {
+      searchModal.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    // Close modal on outside click
+    window.addEventListener("click", (event) => {
+      if (event.target === searchModal) {
+        searchModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+
+    // Search functionality
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.toLowerCase().trim();
+      const allItems = [...items, ...popularItems]; // Combine items
+      const filteredItems = allItems.filter(item => item.name.toLowerCase().includes(query));
+      resultsDiv.innerHTML = '';
+      if (filteredItems.length > 0) {
+        renderItems(filteredItems, resultsDiv);
+      } else {
+        resultsDiv.innerHTML = '<p>No items found.</p>';
+      }
+    });
+  }
+});
+
+// Hamburger menu toggle
+document.getElementById('hamburger').addEventListener('click', function() {
+  const navUl = document.querySelector('.nav ul');
+  navUl.classList.toggle('show');
+});
 
 
 

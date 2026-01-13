@@ -8,6 +8,10 @@
   
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #f9f9f9;
@@ -65,6 +69,16 @@ body {
   cursor: pointer;
 }
 
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
 /* Hero Section */
 .hero {
   display: flex;
@@ -119,6 +133,35 @@ body {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.search-bar-modal {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.search-bar-modal input {
+  padding: 0.5rem;
+  flex: 1;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-bar-modal button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #1AC073;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#searchResults {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
 .hero-image img {
@@ -249,12 +292,6 @@ section h2 {
 .service-info p {
   max-width: 600px;
   margin: 1rem auto;
-}
-
-.video-thumbnail video {
-  margin-top: 1rem;
-  width: 55%;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 /* Contact & Feedback */
@@ -439,29 +476,6 @@ button[type="submit"],
 #request-form button:hover {
   background-color: #27ae60;
 }
-.video-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #2ecc71;
-  color: white;
-  border-radius: 50%;
-  padding: 1rem;
-  font-size: 2rem;
-  display: none;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.play-icon:hover {
-  background-color: #27ae60;
-}
 .header {
   display: flex;
   justify-content: space-between;
@@ -597,12 +611,8 @@ button[type="submit"],
 .service-info {
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(to bottom, #FAFAFA 50%, #C7EACC 50%);
-  color: #333; /* Optional: override text color if needed for contrast */
-}
-.video-thumbnail{
-  padding-bottom: 100px;
-
+  background: linear-gradient(135deg, #1AC073 0%, #2ECC71 100%);
+  color: #fff; /* Change text color to white for contrast */
 }
 .service-heading {
   font-size:40px;
@@ -611,7 +621,7 @@ button[type="submit"],
   text-align: center;
   line-height: 57px;
   margin-bottom: 1.5rem;
-  color:#252B42;
+  color: #fff;
 }
 
 .service-heading span {
@@ -619,7 +629,7 @@ button[type="submit"],
   font-size:40px;
   line-height: 57px;
   font-weight: 600;
-  color: #252B42; /* Matches the green theme */
+  color: #fff; /* Changed to white for visibility on green background */
   margin-top: 0.5rem;
 }
 /* Footer Section */
@@ -725,15 +735,6 @@ button[type="submit"],
 
 .nav ul li a:hover::after {
   width: 100%; /* Underline effect */
-}
-.video-wrapper video {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.video-wrapper:hover video {
-  transform: scale(1.02); /* Slight zoom */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Elevate shadow */
 }
 /* Hover effect for Search and Cart Icons */
 #search-icon:hover, #cart-icon:hover {
@@ -1135,6 +1136,51 @@ button[type="submit"]:hover {
   height: 300px; /* Adjust the height as needed */
   object-fit: cover; /* Ensures the image remains well-proportioned */
   border-radius: 100%; /* Keeps it circular */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1AC073;
+    padding: 1rem 0;
+    z-index: 1000;
+  }
+
+  .nav ul.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    position: relative;
+  }
+
+  .nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  .nav ul li a {
+    padding: 0.5rem 1rem;
+    display: block;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar input {
+    margin-bottom: 0.5rem;
+  }
 }
 .hero-image img {
   width: 500px; /* Adjust the width as needed */

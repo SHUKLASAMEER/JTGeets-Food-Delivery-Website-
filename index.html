@@ -19,13 +19,14 @@
   </div>
   <nav class="nav">
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Menu</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+  <button id="hamburger" class="hamburger"><i class="fas fa-bars"></i></button>
   <div class="nav-icons">
     <button id="search-icon" title="Search"><i class="fas fa-search"></i></button>
     <button id="cart-icon" title="Cart"><i class="fas fa-shopping-cart"></i></button> 
@@ -34,7 +35,7 @@
 
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section id="home" class="hero">
     <div class="hero-text">
       <h1>Authentic Home<br>food in India</h1>
       <p>
@@ -53,13 +54,13 @@
   </section>
 
   <!-- Home Kitchen Grid -->
-  <section class="menu-section">
+  <section id="menu" class="menu-section">
     <h2>Home Kitchen</h2>
     <div class="menu-grid" id="menu-grid"></div>
   </section>
 
   <!-- Popular Items Section -->
-  <section class="popular-items">
+  <section id="blog" class="popular-items">
     <h2>Popular Items</h2>
     <div class="carousel-wrapper">
       <button id="prevPopularBtn" class="carousel-btn"><i class="fas fa-chevron-left"></i></button>
@@ -72,7 +73,7 @@
   </section>
 
   <!-- About/Service Section -->
-  <section class="service-info">
+  <section id="about" class="service-info">
    <div class="upper-half">
     <h2 class="service-heading">
       We are providing the best <br>
@@ -82,22 +83,13 @@
       <span> from a selection of our seasonal home-cooked dishes.</span>
     </p>
   </div>
-    <div class="video-thumbnail">
-  <div class="video-wrapper">
-    <video id="promoVideo" controls>
-      <source src="Videos/7172269-uhd_3840_2160_25fps.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div id="playIcon" class="play-icon"><i class="fas fa-play"></i></div>
-  </div>
-</div>
 
     
   </section>
 
   <!-- Contact Section -->
   <!-- Contact Section -->
-<section class="contact">
+<section id="contact" class="contact">
   <div class="contact-container">
     <div class="contact-form-wrapper">
       <h2>
@@ -161,6 +153,19 @@
   </div>
 </div>
 
+
+  <!-- Search Modal -->
+  <div id="searchModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Search for Food</h2>
+      <div class="search-bar-modal">
+        <input type="text" id="modalSearchInput" placeholder="Search food you love..." />
+        <button id="modalSearchBtn">Search</button>
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
 
   <!-- JavaScript -->
   <script src="script.js"></script>
