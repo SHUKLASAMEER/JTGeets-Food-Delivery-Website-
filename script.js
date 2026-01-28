@@ -1,26 +1,26 @@
  const items = [
-  { name: "Home made pizza", price: "₹100", image: "WhatsApp Image 2025-05-12 at 11.29.02 PM.jpeg.jpg" },
-  { name: "Home made pizza", price: "₹120", image: "WhatsApp Image 2025-05-12 at 11.29.04 PM.jpeg.jpg" },
-  { name: "Home made pizza", price: "₹130", image: "WhatsApp Image 2025-05-12 at 11.29.06 PM.jpeg.jpg" },
-  { name: "Home made pizza", price: "₹100", image: "pizza4.png" },
-  { name: "Home made pizza", price: "₹119", image: "WhatsApp Image 2025-05-12 at 11.29.08 PM (1).jpeg.jpg" },
-  { name: "Home made pizza", price: "₹110", image: "WhatsApp Image 2025-05-12 at 11.29.09 PM (1).jpeg.jpg" },
-  { name: "Home made pizza", price: "₹100", image: "WhatsApp Image 2025-05-12 at 11.29.30 PM.jpeg.jpg" },
-  { name: "Home made pizza", price: "₹120", image: "WhatsApp Image 2025-05-12 at 11.29.39 PM.jpeg.jpg" },
-  { name: "Home made pizza", price: "₹130", image: "WhatsApp Image 2025-05-12 at 11.29.41 PM.jpeg.jpg" },
-  { name: "Home made pizza", price: "₹100", image: "WhatsApp Image 2025-05-12 at 11.30.05 PM.jpeg.jpg" },
-  { name: "Home made pizza", price: "₹119", image: "WhatsApp Image 2025-05-12 at 11.30.08 PM.jpeg.jpg" },
-  { name: "Home made pizza", price: "₹110", image: "WhatsApp Image 2025-05-12 at 11.31.54 PM.jpeg.jpg" }
+  { name: "Home made pizza", price: "₹100", image: "pizza1.jpg" },
+  { name: "Home made pizza", price: "₹120", image: "pizza2.jpg" },
+  { name: "Home made pizza", price: "₹130", image: "pizza3.jpg" },
+  { name: "Home made pizza", price: "₹100", image: "pizza4.jpg" },
+  { name: "Home made pizza", price: "₹119", image: "pizza5.jpg" },
+  { name: "Home made pizza", price: "₹110", image: "pizza6.jpg" },
+  { name: "Home made pizza", price: "₹100", image: "pizza7.jpg" },
+  { name: "Home made pizza", price: "₹120", image: "pizza8.jpg" },
+  { name: "Home made pizza", price: "₹130", image: "pizza9.jpg" },
+  { name: "Home made pizza", price: "₹100", image: "pizza10.jpg" },
+  { name: "Home made pizza", price: "₹119", image: "pizza11.jpg" },
+  { name: "Home made pizza", price: "₹110", image: "pizza12.jpg" }
 ];
 
 const popularItems = [
   { name: "Home made pizza", price: "₹99", image: "pizza3.jpg" },
-  { name: "Tandoori Chicken", price: "₹140", image: "tandoori chicken.jpeg.jpg" },
-  { name: "Chili Chicken", price: "₹116", image: "chillichicken.jpg" },
-  { name: "Rajma Chawal", price: "₹80", image: "rajmachawal.jpeg.jpg" },
-  { name: "Paneer Tikka", price: "₹130", image: "pannertikka.jpeg.jpg" },
+  { name: "Tandoori Chicken", price: "₹140", image: "tandoori-chicken.jpg" },
+  { name: "Chili Chicken", price: "₹116", image: "chili-chicken.jpg" },
+  { name: "Rajma Chawal", price: "₹80", image: "rajma-chawal.jpg" },
+  { name: "Paneer Tikka", price: "₹130", image: "paneer-tikka.jpg" },
   { name: "Paratha Combo", price: "₹90", image: "paratha.png" },
-  { name: "Veg Biryani", price: "₹110", image: "veg briyani.jpeg.jpg" }
+  { name: "Veg Biryani", price: "₹110", image: "veg-biryani.jpg" }
 ];
 
 function renderItems(itemsArray, container) {
