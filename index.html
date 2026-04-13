@@ -19,17 +19,20 @@
   </div>
   <nav class="nav">
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
   <button id="hamburger" class="hamburger"><i class="fas fa-bars"></i></button>
   <div class="nav-icons">
     <button id="search-icon" title="Search"><i class="fas fa-search"></i></button>
-    <button id="cart-icon" title="Cart"><i class="fas fa-shopping-cart"></i></button> 
+    <button id="cart-icon" title="Cart">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cart-count" class="cart-count">0</span>
+    </button>
   </div>
 </header>
 
@@ -39,13 +42,12 @@
     <div class="hero-text">
       <h1>Authentic Home<br>food in India</h1>
       <p>
-       JTGeets is a courier service in which authentic home<br>
-      cooked food is delivered to a customer.
+        JTGeets brings trusted home cooks and fresh delivery together.
+        Explore today’s menu, order in minutes, and enjoy home-style meals.
       </p>
-
-      <div class="search-bar">
-        <input type="text" placeholder="Search food you love..." />
-        <button>Search</button>
+      <div class="hero-actions">
+        <a href="menu.html" class="btn">Explore Menu</a>
+        <a href="contact.html" class="btn secondary">Order Now</a>
       </div>
     </div>
     <div class="hero-image">
@@ -53,38 +55,56 @@
     </div>
   </section>
 
-  <!-- Home Kitchen Grid -->
-  <section id="menu" class="menu-section">
-    <h2>Home Kitchen</h2>
-    <div class="menu-grid" id="menu-grid"></div>
+  <section class="home-menu">
+    <div class="section-header">
+      <h2>Discover Our Menu</h2>
+      <p>Structured categories make it easy to find the food you love.</p>
+    </div>
+    <div class="menu-highlight-grid">
+      <article class="menu-highlight-card">
+        <div class="menu-icon"><i class="fas fa-utensils"></i></div>
+        <h3>Home Classics</h3>
+        <p>Authentic curries, biryanis, roasts, and comfort meals.</p>
+      </article>
+      <article class="menu-highlight-card">
+        <div class="menu-icon"><i class="fas fa-pizza-slice"></i></div>
+        <h3>Chef Specials</h3>
+        <p>Daily featured dishes curated from our best home kitchens.</p>
+      </article>
+      <article class="menu-highlight-card">
+        <div class="menu-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Veg &amp; Vegan</h3>
+        <p>Fresh vegetarian meals, rich in flavor and nutrition.</p>
+      </article>
+      <article class="menu-highlight-card">
+        <div class="menu-icon"><i class="fas fa-cookie-bite"></i></div>
+        <h3>Desserts</h3>
+        <p>Sweet homemade treats and finishers for every craving.</p>
+      </article>
+    </div>
   </section>
 
-  <!-- Popular Items Section -->
-  <section id="blog" class="popular-items">
-    <h2>Popular Items</h2>
-    <div class="carousel-wrapper">
-      <button id="prevPopularBtn" class="carousel-btn"><i class="fas fa-chevron-left"></i></button>
-      <div id="popularTrack" class="popular-scroll-wrapper"></div>
-      <button id="nextPopularBtn" class="carousel-btn"><i class="fas fa-chevron-right"></i></button>
+  <section class="home-features">
+    <div class="feature-card">
+      <h3>Easy Ordering</h3>
+      <p>One-click menu browsing, cart updates, and secure checkout.</p>
     </div>
-    <div style="text-align: center; margin-top: 1rem;">
-      <button id="popular-request-btn" class="btn">Request a Dish</button>
+    <div class="feature-card">
+      <h3>Fast Delivery</h3>
+      <p>Delivered hot from the kitchen to your doorstep.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Trusted Hosts</h3>
+      <p>Every cook is verified and rated by real customers.</p>
     </div>
   </section>
 
-  <!-- About/Service Section -->
-  <section id="about" class="service-info">
-   <div class="upper-half">
-    <h2 class="service-heading">
-      We are providing the best <br>
-      <span>homecooked food delivery service.</span>
-    </h2>
-    <p id="para">Away from home and missing the tasty homemade recipes?<br>
-      <span> from a selection of our seasonal home-cooked dishes.</span>
-    </p>
-  </div>
-
-    
+  <section class="home-callout">
+    <div class="callout-card">
+      <h2>Fresh food from local kitchens</h2>
+      <p>Skip the search and start with our most popular dishes on the menu page.</p>
+      <a href="menu.html" class="btn">View Menu</a>
+    </div>
   </section>
 
   <!-- Contact Section -->
@@ -119,23 +139,16 @@
  <!-- Footer -->
 <footer class="footer">
   <div class="footer-container">
-    <div class="footer-logo">
-      <h3>JTGeats</h3>
+    <div class="footer-brand">
+      <h3>JTGeets</h3>
+      <p class="footer-text">Fresh home-cooked meals and real customer stories delivered with warmth, flavor, and care.</p>
     </div>
-    <nav class="footer-nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
     <div class="footer-icons">
       <a href="#"><i class="fab fa-facebook"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
+
   <div class="footer-line"></div>
 </footer>
 
@@ -149,6 +162,7 @@
       <input type="email" placeholder="Your Email" required />
       <textarea placeholder="What dish would you like us to add?" required></textarea>
       <button type="submit">Submit Request</button>
+      <button type="button" id="cancel-btn" class="btn secondary">Cancel</button>
     </form>
   </div>
 </div>
@@ -164,6 +178,22 @@
         <button id="modalSearchBtn">Search</button>
       </div>
       <div id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content cart-modal-content">
+      <span class="close" id="closeCart">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-summary">
+        <div>
+          <span>Subtotal</span>
+          <strong id="cartTotal">₹0</strong>
+        </div>
+        <button id="checkoutBtn" class="btn">Checkout</button>
+      </div>
     </div>
   </div>
 

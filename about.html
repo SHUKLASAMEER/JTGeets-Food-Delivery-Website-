@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - JTGeets</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="circular_delivery_boy.png" alt="JTGeets Logo" style="height: 40px; width: auto; margin-right: 10px;">
+      JTGeets
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="hamburger" class="hamburger"><i class="fas fa-bars"></i></button>
+    <div class="nav-icons">
+      <button id="search-icon" title="Search"><i class="fas fa-search"></i></button>
+      <button id="cart-icon" title="Cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section id="about" class="service-info">
+    <div class="service-intro">
+      <div class="service-copy">
+        <h2 class="service-heading">
+          About JTGeets<br>
+          <span>Your trusted home-cooked meal delivery platform.</span>
+        </h2>
+        <p>We connect home cooks with hungry customers who want real, authentic meals delivered quickly. Every order is prepared with care by local cooks and served with a personal touch.</p>
+        <a href="menu.html" class="btn">Browse Menu</a>
+      </div>
+      <div class="service-hero-card">
+        <img src="final.png" alt="Home cooked meal" />
+        <div class="service-hero-badge">
+          <span>Since 2024</span>
+          <strong>Home style meals delivered daily</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-highlights">
+      <div class="feature-card">
+        <h3>Trusted Meals</h3>
+        <p>Fresh home-cooked food prepared by verified cooks and delivered to your door.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Local Menus</h3>
+        <p>Explore authentic dishes handpicked from home kitchens in your area.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Easy Ordering</h3>
+        <p>Fast checkout, cart tracking, and order support on every page.</p>
+      </div>
+    </div>
+
+    <div class="about-stats">
+      <article>
+        <strong>1.2K+</strong>
+        Orders Delivered
+      </article>
+      <article>
+        <strong>85%</strong>
+        Repeat Customers
+      </article>
+      <article>
+        <strong>24/7</strong>
+        Customer Support
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>JTGeets</h3>
+        <p class="footer-text">Fresh home-cooked meals and real customer stories delivered with warmth, flavor, and care.</p>
+      </div>
+      <div class="footer-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-line"></div>
+  </footer>
+
+  <div id="searchModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Search for Food</h2>
+      <div class="search-bar-modal">
+        <input type="text" id="modalSearchInput" placeholder="Search food you love..." />
+        <button id="modalSearchBtn">Search</button>
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+
+  <div id="cartModal" class="modal">
+    <div class="modal-content cart-modal-content">
+      <span class="close" id="closeCart">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-summary">
+        <div>
+          <span>Subtotal</span>
+          <strong id="cartTotal">₹0</strong>
+        </div>
+        <button id="checkoutBtn" class="btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
