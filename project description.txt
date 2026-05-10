@@ -1,0 +1,214 @@
+JTGeets – Food Delivery Website (Static Frontend Project)
+========================================================
+
+Project Overview
+----------------
+JTGeets is a multi-page, responsive, frontend-only food delivery/restaurant website. It simulates a real ordering experience (menu browsing, searching, category filtering, cart, quantity changes, and a mock checkout) using pure client-side JavaScript with browser storage.
+
+This repository is a static website: open `index.html` in a browser to run it (no backend/server required).
+
+
+Tech Stack
+----------
+- Frontend: HTML5, CSS3, Vanilla JavaScript (ES6)
+- Storage: Browser `localStorage` (cart persistence)
+- Icons: Font Awesome (CDN)
+- Fonts: Google Fonts (“Open Sans” via CDN)
+- Images/Assets:
+  - Local images in project root (e.g., `final.png`, `circular_delivery_boy.png`, food images)
+  - Remote images from Unsplash / source.unsplash.com (menu cards)
+  - Automatic fallback placeholders via `placehold.co` if an image fails to load
+
+
+Project Structure (Root)
+------------------------
+- `index.html`
+  - Home page (hero, quick menu introduction, and entry points to menu/contact).
+  - Includes: Header navigation, search/cart buttons, modals (Search, Cart, Dish Request), footer.
+- `menu.html`
+  - Menu listing page where dishes are rendered dynamically from `script.js`.
+  - Includes: Search bar, category filter chips, menu grid grouped by category, Search modal, Cart modal.
+- `about.html`
+  - About JTGeets content and highlights (static text + layout).
+  - Includes Search modal + Cart modal.
+- `blog.html`
+  - “Customer Experiences” / testimonials page (static cards).
+  - Includes Dish Request modal + Search modal + Cart modal.
+- `contact.html`
+  - Contact/seller inquiry form page (client-side submit handling).
+  - Includes Search modal + Cart modal.
+- `style.css`
+  - Shared styling for all pages (layout, cards, buttons, modals, responsive nav, etc.).
+- `script.js`
+  - Shared JavaScript for all pages:
+    menu data, rendering, search/filtering, modal controls, cart logic, and form handling.
+- `README.md`
+  - Minimal repo title.
+- `*.png/*.jpg/*.webp/*.avif`
+  - Images used by the UI.
+
+
+Pages and What They Do
+----------------------
+1) Home (`index.html`)
+   - Purpose: Landing page introducing the brand and encouraging users to explore the menu.
+   - Main sections:
+     - Header: navigation links + search/cart icons + hamburger menu for mobile.
+     - Hero: headline + CTA buttons (“Explore Menu”, “Order Now”).
+     - Menu highlights: category teaser cards (static).
+     - Features: “Easy Ordering”, “Fast Delivery”, “Trusted Hosts” (static).
+     - Callout: link to Menu.
+     - Contact form section (same form behavior as `contact.html`).
+   - Modals:
+     - Request Dish modal (used for dish requests).
+     - Search modal (shows rendered results).
+     - Cart modal (shows cart contents, subtotal, checkout).
+
+2) Menu (`menu.html`)
+   - Purpose: Browse dishes, filter by category, search, and add items to cart.
+   - Dynamic behavior:
+     - Menu grid is built via JavaScript using the `items` array from `script.js`.
+     - Filter chips (All/Main/Veg/Breakfast/Dessert/Special/Street) are generated and wired up.
+     - Search can be executed from the page search bar and the search modal.
+
+3) About (`about.html`)
+   - Purpose: Informational “About the service” page.
+   - Mostly static content, but still uses the shared Search and Cart features.
+
+4) Experiences/Blog (`blog.html`)
+   - Purpose: Customer testimonial showcase.
+   - Uses shared modals (including “Request a Dish” where available) and shared cart/search.
+
+5) Contact (`contact.html`)
+   - Purpose: Contact / “become a seller” inquiry form.
+   - Form is handled client-side (no backend submit).
+
+
+JavaScript (script.js) – Functionality Breakdown
+------------------------------------------------
+Data Models
+- `items`: Master list of menu dishes. Each item includes:
+  - `name`, `price` (string like “₹220”), `image`, `category`, and optional `description`.
+- `popularItems`: Subset used when a page contains a “popular items” carousel/track.
+- Cart storage:
+  - `CART_KEY = 'jtgeetsCart'`
+  - `cart`: loaded from `localStorage` on page load and kept in memory.
+
+Price Utilities
+- `parsePrice(price)`: Converts “₹220” → 220 (number) by removing non-numeric characters.
+- `formatPrice(value)`: Converts a number → “₹{value}”.
+
+Image Fallback Handling
+- `getFallbackImage(itemName)`: Generates a placeholder image URL for an item name.
+- `bindImageFallback(imageElement, itemName)`: If an image fails to load, swaps to fallback once.
+
+Cart Core Logic (Persistent via localStorage)
+- `saveCart()`
+  - Writes `cart` to `localStorage`, then updates the badge and re-renders the cart modal.
+- `updateCartCount()`
+  - Updates the cart badge (`#cart-count`) with total quantity across all cart items.
+- `addToCart(item)`
+  - If item exists, increments quantity; otherwise pushes a new item with `quantity: 1`.
+  - Persists cart and shows a confirmation `alert`.
+- `removeFromCart(name)`
+  - Removes an item entirely from cart by name and persists.
+- `changeQuantity(name, delta)`
+  - Adjusts quantity up/down; removes item if quantity would go below 1.
+- `calculateTotal()`
+  - Returns subtotal (sum of `price * quantity`) using `parsePrice`.
+
+Rendering (DOM Creation)
+- `renderItems(itemsArray, container)`
+  - Creates “dish cards” into a container (used for menu grids and search results).
+  - Wires “Add” button to `addToCart`.
+  - Wires “Rate” to a simple thank-you `alert`.
+  - Applies image fallback behavior.
+- `renderCart()`
+  - Builds cart UI in `#cartItems` and updates `#cartTotal`.
+  - Shows empty-cart message when needed.
+  - Wires quantity buttons (increase/decrease) and “Remove” actions.
+
+Search + Filtering
+- `filterMenu(query = '', category = 'All')`
+  - Performs case-insensitive search across name and description.
+  - Applies category filtering when not “All”.
+- `renderSearchResults(results)`
+  - Renders results inside the Search modal’s `#searchResults`.
+- `updateCategoryFilters()`
+  - Creates filter chips inside `#categoryFilters`.
+  - Handles “active” state and triggers menu re-rendering using `renderMenuGrid(...)`.
+- `renderMenuGrid(itemsArray)`
+  - Renders dishes grouped into category sections in a fixed category order:
+    `Main`, `Veg`, `Breakfast`, `Special`, `Street`, `Dessert`.
+
+Modal System (Search / Cart / Request Dish)
+- `openModal(modal)`: Displays modal and locks background scroll.
+- `closeModal(modal)`: Hides modal and restores background scroll.
+- Close behavior:
+  - Clicking the “×” closes the modal.
+  - Clicking the overlay area outside modal content closes it.
+
+Event Wiring (DOMContentLoaded)
+On every page load, the script:
+- Initializes menu rendering (if `#menu-grid` exists) and popular items (if `#popularTrack` exists).
+- Initializes cart badge and cart modal rendering.
+- Initializes category chips (if `#categoryFilters` exists).
+- Hooks:
+  - Header search icon → open Search modal
+  - Header cart icon → open Cart modal
+  - Home hero search → opens Search modal with filtered results (only if hero search exists)
+  - Menu page search bar → filters menu grid
+  - Modal search input/button → filters and renders results
+  - Hamburger button → toggles mobile nav (`.nav ul.show`)
+  - Checkout button:
+    - If cart empty → alert
+    - Else → alert “Checkout successful”, clears cart, persists, closes cart modal
+  - Request dish form:
+    - Opens/closes request modal
+    - On submit → resets form + success alert
+  - Contact form:
+    - On submit → prevents navigation, resets form, success alert
+
+
+CSS (style.css) – What It Styles
+--------------------------------
+- Global reset and typography (Open Sans).
+- Shared header with sticky positioning and responsive navigation:
+  - Desktop nav links + icons.
+  - Mobile hamburger toggles `.nav ul.show`.
+- Shared components:
+  - Buttons (`.btn`, `.btn.secondary`)
+  - Cards for dishes/testimonials (`.card`, `.card-body`, `.badge`, etc.)
+  - Search bars (page and modal)
+  - Modals (`.modal`, `.modal-content`, `.close`) and cart layout inside modal
+  - Footer layout and social icons
+- Responsive behavior:
+  - Breakpoints around 980px and 720px adjust grids, nav, spacing, and layout stacking.
+
+
+How to Run / View
+-----------------
+Option A (simplest):
+- Double-click `index.html` to open in your browser.
+
+Option B (recommended for local development; avoids some browser file restrictions):
+- Use a local static server (examples):
+  - VS Code/Cursor “Live Server” extension
+  - `python -m http.server` (if Python installed) and open the shown localhost URL
+
+
+Limitations (Current Scope)
+---------------------------
+- No backend/API:
+  - “Checkout”, “Rate”, and form submissions are simulated using `alert()` and form resets.
+- No authentication, payments, or real order processing.
+- Menu items are hardcoded in `script.js`.
+
+
+Suggested Future Enhancements (Optional)
+----------------------------------------
+- Replace alerts with styled toast notifications.
+- Add a real checkout flow and backend (orders, users, payments).
+- Add a dedicated “Order Now” page and connect CTA buttons to it.
+- Store menu items in JSON or fetch from an API.
+- Add accessibility improvements (focus trapping in modals, ARIA labels).
